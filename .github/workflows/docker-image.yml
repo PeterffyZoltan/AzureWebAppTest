@@ -33,5 +33,5 @@ jobs:
       with:
         app-name: 'valami'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b658a561b28a4ee986f7f19bb7fd98b4 }}
-        images: 'ghcr.io/peterffyzoltan/${{ secrets.AzureAppService_ContainerUsername_382fff0a82194b4ebbf1a23a49771e17 }}/peterffyzoltan/azure-webapp-test:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_14416cb817fe4c07a434b0391b098215 }}
+        images: 'ghcr.io/peterffyzoltan/${{ secrets.AzureAppService_ContainerUsername_945ab8d8699848c1af4b52c2d8199573 }}/peterffyzoltan/peterffyzoltan/peterffyzoltan/azure-webapp-test:${{ github.sha }}'
