@@ -26,3 +26,12 @@ jobs:
         docker login ghcr.io -u peterffyzoltan -p ${{secrets.GHCR_TOKEN}}
         docker push ghcr.io/peterffyzoltan/azure-webapp-test:$IMAGE_TAG
         docker push ghcr.io/peterffyzoltan/azure-webapp-test:latest
+
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'valami'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b658a561b28a4ee986f7f19bb7fd98b4 }}
+        images: 'ghcr.io/peterffyzoltan/${{ secrets.AzureAppService_ContainerUsername_382fff0a82194b4ebbf1a23a49771e17 }}/peterffyzoltan/azure-webapp-test:${{ github.sha }}'
